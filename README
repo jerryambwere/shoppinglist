@@ -39,11 +39,10 @@ Implement persistence using local storage to save the list even after the page r
 
 2.  Clone the repository by running the following command:
 
-        git clone https://github.com/oyieroyier/toy_problems_js_only.git
-
+        git clone git@github.com:jerryambwere/shoppinglist.git
 3.  Change directory to the repo folder:
 
-        cd toy_problems_js_only
+        cd shoppinglist
 
 4.  Open it in your Code Editor of choice. If you use VS Code, run the command:
 
@@ -55,11 +54,11 @@ Implement persistence using local storage to save the list even after the page r
 
 - If using VS Code, you can use the Live Server extension to run the file on the browser for live reloading.
 
-- Click [HERE](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) to install the Live Server extension and to read instructions on how to use it.
+- Click [HERE]https://jerryambwere.github.io/shoppinglist/ to install the Live Server extension and to read instructions on how to use it.
 
 - Open the context menu by right clicking anywhere on the page and select `Inspect` to launch the Developer Tools.
 
-- Inside `grade_calculator.js`, invoke/call each of the functions, one at a time and with varied inputs, to test the different logic implementations and check the output on the console.
+- Inside `index.js`, invoke/call each of the functions, one at a time and with varied inputs, to test the different logic implementations and check the output on the console.
 
 - Remember to comment out each execution once done to avoid confusion with the outputs.
     
