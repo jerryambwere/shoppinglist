@@ -48,7 +48,7 @@ Implement persistence using local storage to save the list even after the page r
 
         code .
 
- ## running the application
+ ## running the  shopping list application
 
      Open the index.html file in Mozilla Firefox, Safari or any Chromium-based browser.
 
