@@ -1,76 +1,66 @@
-document.addEventListener('DOMContentLoaded'()={
-    const i=document.getElementById('input')
-})
+dfunction createElement(element) {
+    return document.createElement(element);
+  }
+  
+  function addText(element, text) {
+    return (element.innerText = text);
+  }
+  
+  
+  function appendChild(child, parent) {
+    return parent.appendChild(child);
+  }
+  
+  
+  function select(selector) {
+    return document.querySelector(selector);
+  }
+  
+  function listen(element, event, callback) {
+    return element.addEventListener(event, callback);
+  }
+  
+  function addAttribute(element, attribute, content) {
+    return element.setAttribute(attribute, content);
+  }
+  
+  const shoppingList = ["milk", "tea"];
+  
+  const ol = select("ol");
+  
+  listen(document, "DOMContentLoaded", displayItems);
+  function displayItems() {
+    ol.innerHTML= ''
+    shoppingList.forEach(createAListItem);
+  }
+  function createAListItem(item) {
+  const li= createElement('li')  
+  addText(li,item)  
+  appendChild(li,ol)
+  }
+
+  const form= select('select')
+  listen(form,'submit',addItem)
+
+  function addItem(event) {
+    event.preventDefault()
+    console.log('From the form');
+shoppingList.push(event.target[0].value)
 
 
-const input= document.getElementById('input')
-   const addBtn=document.getElementById('addBtn')
-   const  clearBtn= document.getElementById('clearBtn')
-   const purchaseBtn=document.getElementById('purchaseBtn')
- 
-   const shoppingList= document.getElementById('shoppingList')
+displayItems()
+console.log(shoppingList)
+event.target.reset('delete')
+  }
 
-  let items=JSON.parse(localStorage.getItem('shoppingListItems'))
-||  []
+  const deleleteButton= select('delete')
+  listen(deleleteButton, 'click', clearList)
+  console.log('this is before we click');
 
-const updateLocalStorage=function () {
-    localStorage.setItem('shoppingListItems',
-JSON.stringify(items)
-    )
-}
+  function clearList() {
+    shoppingList.length=0
+    console.log
+  }
 
-const renderItems= function () {
-    shoppingList.innerHTML=''
-    items.forEach(item,index) => {
-const listItem= document.createElement('li')
-const textNode=document.createElement('span')
-textNode.textContent=item.name
-    }
-
-    listItem.appendChild(textNode)
-
-    listItem.classList.toggle('purchased',item.purchased)
-
-    const editBtn=document.createElement('button')
-
-    editBtn.textContent=EdIT
-
-    editBtn.addEventListener('click',(e)=>{
-        e.stopPropagation()
-        const newItem=prompt('edit item',item.name)
-        if (newItem) {
-            items[index].name= newItem;
-            updateLocalStorage()
-            renderList()
-        }
-    })
-
-const markBtn= document.createElement('button')
-markBtn.addEventListener('click',(e)=> {
-    e.stopPropagation()
-    items[index].purchased = !items[index].purchased
-    updateLocalStorage()
-    renderList()}
-)
-
-listItem.appendChild(editBtn)
-listItem.appendChild(markBtn)
-listItem.appendChild(listItem)
-}
-
-addBtn.addEventListener('click',()=>{
-    const newIt=itemInput.value.trim()
-    if(newIt){
-        items.push({name:
-            newIt,purchased:false 
-        })
-        itemInput.value=''
-        updateLocalStorage()
-        renderItems()
-    }
-})
-
-
-
-
+  
 
