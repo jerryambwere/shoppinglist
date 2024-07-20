@@ -1,13 +1,73 @@
-body{
-    background-color: blueviolet;
-}
-#addBtn{
-    background-color: blue;
-}
-#clearBtn{
-    background-color: blue
 
-}
-#purchaseBtn{
-    background-color: blue
-}
+body, h2, ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  #app {
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 8px;
+    
+    width: 300px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  input[type="text"] {
+    width: calc(100% - 75px); 
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid azure;
+    border-radius: 4px;
+  }
+  
+  button {
+    
+    padding: 8px 16px;
+    margin-left: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: green; 
+    color: white;
+  }
+  
+  button:hover {
+    background-color: greenyellow;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid ghostwhite;
+  }
+  
+  ul li:last-child {
+    border-bottom: none;
+  }
+  
+  .purchased {
+    text-decoration: line-through;
+    color:gray;
+  }
+  

@@ -1,66 +1,90 @@
-dfunction createElement(element) {
-    return document.createElement(element);
-  }
-  
-  function addText(element, text) {
-    return (element.innerText = text);
-  }
-  
-  
-  function appendChild(child, parent) {
-    return parent.appendChild(child);
-  }
-  
-  
-  function select(selector) {
-    return document.querySelector(selector);
-  }
-  
-  function listen(element, event, callback) {
-    return element.addEventListener(event, callback);
-  }
-  
-  function addAttribute(element, attribute, content) {
-    return element.setAttribute(attribute, content);
-  }
-  
-  const shoppingList = ["milk", "tea"];
-  
-  const ol = select("ol");
-  
-  listen(document, "DOMContentLoaded", displayItems);
-  function displayItems() {
-    ol.innerHTML= ''
-    shoppingList.forEach(createAListItem);
-  }
-  function createAListItem(item) {
-  const li= createElement('li')  
-  addText(li,item)  
-  appendChild(li,ol)
-  }
+document.addEventListener('DOMContentLoaded', function() {
+  const itemInput = document.getElementById('itemInput');
+  const addItemBtn = document.getElementById('addItemBtn');
+  const markPurchasedBtn = document.getElementById('markPurchasedBtn');
+  const clearListBtn = document.getElementById('clearListBtn');
+  const itemList = document.getElementById('itemList');
 
-  const form= select('select')
-  listen(form,'submit',addItem)
+  let shoppingList = []; 
 
-  function addItem(event) {
-    event.preventDefault()
-    console.log('From the form');
-shoppingList.push(event.target[0].value)
-
-
-displayItems()
-console.log(shoppingList)
-event.target.reset('delete')
-  }
-
-  const deleleteButton= select('delete')
-  listen(deleleteButton, 'click', clearList)
-  console.log('this is before we click');
-
-  function clearList() {
-    shoppingList.length=0
-    console.log
+  function addItemToList(itemText) {
+    const li = document.createElement('li');
+    li.textContent = itemText;
+    itemList.appendChild(li);
   }
 
   
+  addItemBtn.addEventListener('click', function() {
+    const newItem = itemInput.value.trim();
+    if (newItem !== '') {
+      shoppingList.push(newItem); 
+      addItemToList(newItem); 
+      itemInput.value = ''; 
+    }
+  });
 
+  markPurchasedBtn.addEventListener('click', function() {
+    const lis = itemList.getElementsByTagName('li');
+    for (let li of lis) {
+      if (!li.classList.contains('purchased') && !li.classList.contains('hidden')) {
+        li.classList.add('purchased');
+      }
+    }
+  });
+
+  
+  clearListBtn.addEventListener('click', function() {
+    shoppingList = []; 
+    itemList.innerHTML = ''; 
+  });
+
+
+  itemList.addEventListener('click', function(event) {
+    if (event.target.tagName === 'LI') {
+      event.target.classList.toggle('purchased');
+    }
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// document.addEventListener("DOMContentLoaded", function () {
+  
+//   const addBtn = document.getElementById("add");
+//   const deleteBtn = document.getElementById("delete");
+//   const inputFrm = document.getElementById("formfield");
+//   const list = document.getElementById("itemslist");
+
+//   let listArray = [];
+
+//   addBtn.addEventListener("click", displayItems );
+
+//   function displayItems() {
+//     const addItem = inputFrm.value.trim();
+//     const li = document.createElement("li");
+//     li.textContent = addItem;
+//     list.appendChild(li);
+
+//     listArray.push(addItem());
+//   }
+// })
